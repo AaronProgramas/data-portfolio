@@ -31,7 +31,7 @@ with tab1:
         (body, resources) = html_exporter.from_notebook_node(notebook_content)
 
         # Display HTML
-        st.components.v1.html(body, height=800, scrolling=True)
+        st.components.v1.html(body, height=1200, scrolling=True)
 
 # --- RESUME TAB ---
 with tab2:
