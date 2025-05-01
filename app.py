@@ -14,7 +14,7 @@ with tab1:
     st.title("📊 Aaron Albrecht's insane Data Analytic skills showcase")
 
     # List available projects
-    project_files = [f for f in os.listdir('projects') if f.endswith('.ipynb')]
+    project_files = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
 
     selected_project = st.sidebar.selectbox("Choose a Project", project_files)
 
