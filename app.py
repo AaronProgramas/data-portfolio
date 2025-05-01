@@ -43,7 +43,7 @@ with tab2:
     st.write("""
     Hi, I'm Aaron! 👋
 
-    I consider myself to be the avatar of Data Analytics, the master of four elements (Python, Excel, SQL and Power BI).
+    I specialize in Data Analytics, with proficiency in Python, Excel, SQL, and Power BI.
     This portfolio showcases some of my recent projects.
     """)
 
