@@ -50,46 +50,64 @@ with tab2:
     # RESUME DETAILS
     st.subheader("Experience")
     st.markdown("""
-    **Data Analytics**  
-    - **Universidade do Estado do Rio de Janeiro**  
-      Scientific Research Project  
-      Developed a colorimetric sensor for food safety analysis using ML models to assess biogenic amines in protein-rich foods. *(May 2023 – Present)*
+    **Database and Automation Developer – Osprey Visa Consulting**  
+    *Rio de Janeiro, RJ | April 2025 – Present*  
+    - Developed a centralized client management database (Azure SQL).  
+    - Automated repetitive workflows with Python, enhancing data accuracy and reducing manual labor.
 
-    - **Sales Consultant – Conpleq Consultoria**  
-      Implemented ML models to predict purchasing behavior based on demographic data. *(September 2023 – May 2024)*
-    
-    **Chemical Engineering**  
-    - **Intern – SANDECH Consultoria (Dec 2023 – May 2024)**  
-      Commercialization of engineering services (over R$ 1M in sales), KPI analysis using Power BI.
-    
-    - **Intern – Hugo Silva & Maldonado (Aug 2023 – Dec 2023)**  
-      Translated 200+ technical patents; reviewed industrial process descriptions.
+    **Commercial Analyst – SANDECH Consultoria em Engenharia e Gestão LTDA**  
+    *Rio de Janeiro, RJ | Dec 2023 – May 2024*  
+    - Generated over R$ 1M in sales for engineering services.  
+    - Managed KPIs and created interactive dashboards using Power BI.
+
+    **Sales Consultant – Conpleq Consultoria**  
+    *Rio de Janeiro, RJ | Jul 2023 – Apr 2024*  
+    - Built a Linear Regression model with 83% accuracy to predict client purchase behavior.  
+    - Boosted lead response rates by 20% through targeted insights.
     """)
 
-    st.subheader("Portfolio Links")
+    st.subheader("Projects")
     st.markdown("""
-    - [GitHub](https://github.com/AaronProgramas)
-    - [Kaggle](https://www.kaggle.com/aaronalbrecht)
+    **Kaggle Machine Learning Competition** *(May 2025)*  
+    - Built a stacked regression model using XGBoost, LightGBM, Gradient Boosting, and RandomForest.  
+    - Ranked in the top 40% of the leaderboard for calorie expenditure prediction.
+
+    **PDF/DOCX Automation Tool** *(May 2025)*  
+    - Developed a script to mass-edit PDF/DOCX files using Fitz, PyPDF2, and python-docx.  
+    - Reduced manual editing time by ~30 minutes per document.
+
+    **Client Database System** *(April 2025)*  
+    - Designed and deployed a normalized database in Azure SQL with 6 relational tables.  
+    - Improved data management and client tracking.
+    """)
+
+    st.subheader("Education")
+    st.markdown("""
+    - **Data Science** – Universidade Estácio de Sá *(Expected 2027)*  
+    - **Chemical Engineering** – Universidade do Estado do Rio de Janeiro (UERJ) *(Expected Dec 2027)*  
     """)
 
     st.subheader("Technical Skills")
     st.markdown("""
     - **Languages**: Python, SQL  
-    - **Libraries**: Pandas, Numpy, Scikit-learn, Seaborn, Matplotlib  
-    - **Tools**: Power BI, Jupyter Notebook, AutoCAD, Excel, Git  
-    - **Cloud**: AWS (S3, QuickSight, Lambda)  
-    - **Others**: Data cleaning, predictive modeling, feature engineering, KPI analysis, ML (classification, regression)
+    - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn, XGBoost  
+    - **Tools**: Power BI, Jupyter Notebook, Git  
+    - **Cloud Platforms**: Azure, AWS  
+    - **Database**: Microsoft SQL Server  
+    - **Techniques**: Data Cleaning, Predictive Modeling, Feature Engineering, KPI Analysis, Machine Learning
     """)
 
     st.subheader("Languages")
     st.markdown("""
-    - Portuguese (native)  
-    - English (fluent)
+    - Portuguese (Native)  
+    - English (Fluent)
     """)
 
-    st.subheader("Education")
+    st.subheader("Portfolio Links")
     st.markdown("""
-    - **Data Science** – Universidade Estácio de Sá *(2025–2027)*  
-    - **Chemical Engineering** – Universidade do Estado do Rio de Janeiro (UERJ) *(2021–2027)*  
-    - **Chemical Technician** – Escola Técnica Star Brasil
+    - [Website](https://aarondatascience.streamlit.app/)  
+    - [LinkedIn](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
+    - [GitHub](https://github.com/AaronProgramas)  
+    - [Kaggle](https://www.kaggle.com/aaronalbrecht)  
+    - 📧 [aaronsdatascience@gmail.com](mailto:aaronsdatascience@gmail.com)
     """)
