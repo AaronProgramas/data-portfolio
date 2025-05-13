@@ -105,9 +105,7 @@ with tab2:
 
     st.subheader("Portfolio Links")
     st.markdown("""
-    - [Website](https://aarondatascience.streamlit.app/)  
     - [LinkedIn](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
     - [GitHub](https://github.com/AaronProgramas)  
     - [Kaggle](https://www.kaggle.com/aaronalbrecht)  
-    - 📧 [aaronsdatascience@gmail.com](mailto:aaronsdatascience@gmail.com)
     """)
