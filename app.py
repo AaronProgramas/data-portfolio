@@ -7,11 +7,11 @@ import nbformat
 st.set_page_config(page_title="Aaron Albrecht", layout="wide")
 
 # Tabs
-tab1, tab2 = st.tabs(["📊 Projects", "📄 Resume"])
+tab1, tab2 = st.tabs(["Projects", "Resume"])
 
 # --- PROJECTS TAB ---
 with tab1:
-    st.title("📊 Aaron Albrecht - Data Analytic Portfolio")
+    st.title("Aaron Albrecht - Data Analytic Portfolio")
 
     # List available projects
     project_files = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
@@ -35,7 +35,7 @@ with tab1:
 
 # --- RESUME TAB ---
 with tab2:
-    st.title("📄 About Me")
+    st.title("About Me")
 
     # Add resume download button
     with open("assets/resume.pdf", "rb") as pdf_file:
@@ -52,7 +52,7 @@ with tab2:
     st.image("assets/my_picture.jpg", width=250)
 
     st.write("""
-    Hi, I'm Aaron! 👋
+    Hi, I'm Aaron!
 
     I specialize in Data Analytics, with proficiency in Python, Excel, SQL, and Power BI.
     This portfolio showcases some of my recent projects.
