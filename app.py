@@ -11,7 +11,7 @@ tab1, tab2 = st.tabs(["📊 Projects", "📄 Resume"])
 
 # --- PROJECTS TAB ---
 with tab1:
-    st.title("📊 Aaron Albrecht's insane Data Analytic skills showcase")
+    st.title("📊 Aaron Albrecht - Data Analytic Portfolio")
 
     # List available projects
     project_files = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
@@ -51,50 +51,45 @@ with tab2:
     st.subheader("Experience")
     st.markdown("""
     **Database and Automation Developer – Osprey Visa Consulting**  
-    *Rio de Janeiro, RJ | April 2025 – Present*  
-    - Developed a centralized client management database (Azure SQL).  
-    - Automated repetitive workflows with Python, enhancing data accuracy and reducing manual labor.
+    *Rio de Janeiro, RJ | Apr 2025 – Present*  
+    - Developed a centralized client management database (Azure SQL)  
+    - Automated repetitive workflows with Python, enhancing data accuracy and reducing manual labor
 
     **Commercial Analyst – SANDECH Consultoria em Engenharia e Gestão LTDA**  
     *Rio de Janeiro, RJ | Dec 2023 – May 2024*  
-    - Generated over R$ 1M in sales for engineering services.  
-    - Managed KPIs and created interactive dashboards using Power BI.
+    - Generated over R$ 1M in sales for engineering services  
+    - Created interactive dashboards using Power BI
 
     **Sales Consultant – Conpleq Consultoria**  
     *Rio de Janeiro, RJ | Jul 2023 – Apr 2024*  
-    - Built a Linear Regression model with 83% accuracy to predict client purchase behavior.  
-    - Boosted lead response rates by 20% through targeted insights.
+    - Built a regression model with 83% accuracy to predict client purchase behavior  
+    - Boosted response rates by 20% through data-driven insights
     """)
 
     st.subheader("Projects")
     st.markdown("""
     **Kaggle Machine Learning Competition** *(May 2025)*  
-    - Built a stacked regression model using XGBoost, LightGBM, Gradient Boosting, and RandomForest.  
-    - Ranked in the top 40% of the leaderboard for calorie expenditure prediction.
+    - Built a stacked regression model with XGBoost, LightGBM, and RandomForest  
+    - Ranked in the top 38% for calorie expenditure prediction
 
     **PDF/DOCX Automation Tool** *(May 2025)*  
-    - Developed a script to mass-edit PDF/DOCX files using Fitz, PyPDF2, and python-docx.  
-    - Reduced manual editing time by ~30 minutes per document.
-
-    **Client Database System** *(April 2025)*  
-    - Designed and deployed a normalized database in Azure SQL with 6 relational tables.  
-    - Improved data management and client tracking.
+    - Script to batch-edit PDF/DOCX using Fitz, PyPDF2, and python-docx  
+    - Reduced editing time by ~30 min per document
     """)
 
     st.subheader("Education")
     st.markdown("""
-    - **Data Science** – Universidade Estácio de Sá *(Expected 2027)*  
-    - **Chemical Engineering** – Universidade do Estado do Rio de Janeiro (UERJ) *(Expected Dec 2027)*  
+    - **B.Sc. in Data Science** – Estácio de Sá *(Expected 2027)*  
+    - **B.Sc. in Chemical Engineering** – UERJ *(Expected Dec 2027)*
     """)
 
     st.subheader("Technical Skills")
     st.markdown("""
     - **Languages**: Python, SQL  
     - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn, XGBoost  
-    - **Tools**: Power BI, Jupyter Notebook, Git  
-    - **Cloud Platforms**: Azure, AWS  
-    - **Database**: Microsoft SQL Server  
-    - **Techniques**: Data Cleaning, Predictive Modeling, Feature Engineering, KPI Analysis, Machine Learning
+    - **Databases**: Microsoft SQL Server  
+    - **Tools**: Power BI, Git, Jupyter Notebook, Azure, AWS, Airflow, Snowflake, Docker  
+    - **Others**: Data Cleaning, Predictive Modeling, KPI Analysis, Machune Learning, Data Visualization
     """)
 
     st.subheader("Languages")
@@ -105,7 +100,7 @@ with tab2:
 
     st.subheader("Portfolio Links")
     st.markdown("""
-    - [LinkedIn](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
-    - [GitHub](https://github.com/AaronProgramas)  
-    - [Kaggle](https://www.kaggle.com/aaronalbrecht)  
-    """)
+    [![GitHub](https://img.shields.io/badge/GitHub-AaronProgramas-black?logo=github)](https://github.com/AaronProgramas)  
+    [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-black?logo=linkedin)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
+    [![Kaggle](https://img.shields.io/badge/Kaggle-AaronAlbrecht-black?logo=kaggle)](https://www.kaggle.com/aaronalbrecht)
+    """, unsafe_allow_html=True)
