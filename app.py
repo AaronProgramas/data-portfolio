@@ -11,7 +11,7 @@ tab1, tab2 = st.tabs(["Projects", "Resume"])
 
 # --- PROJECTS TAB ---
 with tab1:
-    st.title("Aaron Albrecht - Data Analytic Portfolio")
+    st.title("Aaron Albrecht - Data Analytics Portfolio")
 
     # List available projects
     project_files = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
