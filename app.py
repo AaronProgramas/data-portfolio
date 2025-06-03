@@ -6,6 +6,13 @@ import nbformat
 # Set Page Configuration
 st.set_page_config(page_title="Aaron Albrecht", layout="wide")
 
+# Define ML project names
+ml_projects = {
+    "Student mental health binary prediction ML.ipynb",
+    "Predicting podcast listening time with ML.ipynb",
+    "Kaggle top 38% base ML model.ipynb"
+}
+
 # Tabs
 tab1, tab2 = st.tabs(["Projects", "Resume"])
 
@@ -13,9 +20,17 @@ tab1, tab2 = st.tabs(["Projects", "Resume"])
 with tab1:
     st.title("Aaron Albrecht - Data Analytics Portfolio")
 
-    # List available projects
-    project_files = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
+    # --- Sidebar: Category selection ---
+    category = st.sidebar.radio("Select Project Category", ["Data Analytics", "Machine Learning"])
 
+    # --- Filter projects ---
+    all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
+    if category == "Machine Learning":
+        project_files = sorted([f for f in all_projects if f in ml_projects])
+    else:
+        project_files = sorted([f for f in all_projects if f not in ml_projects])
+
+    # --- Project selection ---
     selected_project = st.sidebar.selectbox("Choose a Project", project_files)
 
     if selected_project:
