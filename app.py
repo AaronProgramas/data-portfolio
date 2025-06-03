@@ -37,6 +37,17 @@ with tab1:
 with tab2:
     st.title("📄 About Me")
 
+    # Add resume download button
+    with open("assets/resume.pdf", "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+
+    st.markdown("---")
+    st.download_button(
+        label="📄 Download Resume (PDF)",
+        data=PDFbyte,
+        file_name="Aaron_Albrecht_Resume.pdf",
+        mime="application/pdf"
+    )
     # Show your picture
     st.image("assets/my_picture.jpg", width=250)
 
