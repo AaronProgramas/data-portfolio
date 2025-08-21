@@ -63,9 +63,6 @@ with tab2:
     num_cols = joblib.load("num_cols.pkl")             # lista de colunas numéricas
     category_mapping = joblib.load("category_mapping.pkl")  # se precisar de mapping manual
     
-    # Streamlit app
-    
-    st.set_page_config(page_title="Am I Depressed?", page_icon="☹️", layout="centered")
     
     st.title("Depression Probability Calculator")
     st.write("Fill the form to predict the odds of having the big sad.")
