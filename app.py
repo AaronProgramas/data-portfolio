@@ -67,24 +67,7 @@ with tab2:
     st.title("Depression Probability Calculator")
     st.write("Fill the form to predict the odds of having the big sad.")
     
-    with st.sidebar:
-        st.title("About the Mental Health App")
-        st.write(
-            "This web app leverages a machine learning model trained on an open-source Kaggle dataset "
-            "to estimate the probability of depression. ")
-        st.write(
-            "While the model achieves an accuracy of 87%, it is **not** a substitute for professional "
-            "mental health support. Please consult a qualified professional for any medical concerns."
-        )
-    
-        st.title("Hire Me")
-        st.markdown(
-            """
-            [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)
-            """,
-            unsafe_allow_html=True
-        )
-    col1, col2 = st.columns([1, 1])
+    col1, col2, col3 = st.columns([2, 2, 1])
     
     # Input form
     
@@ -114,6 +97,23 @@ with tab2:
         sleep_duration = st.selectbox("Sleep Duration", ['Less than 5 hours', '5-6 hours', '7-8 hours', 'More than 8 hours'])
         dietary_habits = st.selectbox("Dietary Habits", ['Healthy', 'Moderate', 'Unhealthy'])
     
+    with col3:
+        st.title("About the Mental Health App")
+        st.write(
+            "This web app leverages a machine learning model trained on an open-source Kaggle dataset "
+            "to estimate the probability of depression. ")
+        st.write(
+            "While the model achieves an accuracy of 87%, it is **not** a substitute for professional "
+            "mental health support. Please consult a qualified professional for any medical concerns."
+        )
+    
+        st.title("Hire Me")
+        st.markdown(
+            """
+            [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)
+            """,
+            unsafe_allow_html=True
+        )
     
     
     
