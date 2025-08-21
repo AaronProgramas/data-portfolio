@@ -24,19 +24,18 @@ tab1, tab2, tab3 = st.tabs(["Projects", "Binary Mental Health Prediction", "Resu
 with tab1:
     st.title("Aaron Albrecht - Data Analytics Portfolio")
 
-    # --- Sidebar only for Tab 1 ---
-    with st.sidebar:
-        category = st.radio("Select Project Category", ["Data Analytics", "Machine Learning"])
+    # --- Sidebar: Category selection ---
+    category = st.sidebar.radio("Select Project Category", ["Data Analytics", "Machine Learning"])
 
-        # --- Filter projects ---
-        all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
-        if category == "Machine Learning":
-            project_files = sorted([f for f in all_projects if f in ml_projects])
-        else:
-            project_files = sorted([f for f in all_projects if f not in ml_projects])
+    # --- Filter projects ---
+    all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
+    if category == "Machine Learning":
+        project_files = sorted([f for f in all_projects if f in ml_projects])
+    else:
+        project_files = sorted([f for f in all_projects if f not in ml_projects])
 
-        # --- Project selection ---
-        selected_project = st.selectbox("Choose a Project", project_files)
+    # --- Project selection ---
+    selected_project = st.sidebar.selectbox("Choose a Project", project_files)
 
     if selected_project:
         st.header(f"Project: {selected_project}")
@@ -54,18 +53,30 @@ with tab1:
         st.components.v1.html(body, height=1200, scrolling=True)
 
 # --- DEPRESSION PROB CALCULATOR TAB ---
+
 with tab2:
-    # Sidebar only for Tab 2
+    # Load dumped models & preprocessors
+    
+    model = joblib.load("final_depression_model.pkl")
+    scaler = joblib.load("scaler.pkl")
+    label_encoders = joblib.load("label_encoders.pkl")  # dicionário com encoders por coluna
+    num_cols = joblib.load("num_cols.pkl")             # lista de colunas numéricas
+    category_mapping = joblib.load("category_mapping.pkl")  # se precisar de mapping manual
+    
+    
+    st.title("Depression Probability Calculator")
+    st.write("Fill the form to predict the odds of having the big sad.")
+    
     with st.sidebar:
         st.title("About the App")
         st.write(
             "This web app leverages a machine learning model trained on an open-source Kaggle dataset "
-            "to estimate the probability of depression. "
-        )
+            "to estimate the probability of depression. ")
         st.write(
             "While the model achieves an accuracy of 87%, it is **not** a substitute for professional "
             "mental health support. Please consult a qualified professional for any medical concerns."
         )
+    
         st.title("Hire Me")
         st.markdown(
             """
@@ -73,40 +84,41 @@ with tab2:
             """,
             unsafe_allow_html=True
         )
-
-    st.title("Depression Probability Calculator")
-    st.write("Fill the form to predict the odds of having the big sad.")
-
-    # Load dumped models & preprocessors
-    model = joblib.load("final_depression_model.pkl")
-    scaler = joblib.load("scaler.pkl")
-    label_encoders = joblib.load("label_encoders.pkl")
-    num_cols = joblib.load("num_cols.pkl")
-    category_mapping = joblib.load("category_mapping.pkl")
-
     col1, col2 = st.columns([1, 1])
-
+    
+    # Input form
+    
     with col1:
+    
         st.subheader("Personal Information")
+    
         gender = st.selectbox("Gender", ["Male", "Female", "Other"])
         profession = st.selectbox("Profession", ['Student', 'Working Professional'])
         age = st.slider("Age", 10, 60, 20)
-
+    
         st.subheader("Mental Health Factors")
+    
         suicidal_thoughts = st.selectbox("Have you ever had suicidal thoughts ?", ["Yes", "No"])
         family_history = st.selectbox("Family History of Mental Illness", ["Yes", "No"])
-
+    
     with col2:
+    
         st.subheader("Academic Information")
+    
         degree = st.selectbox("Degree", ['B.Pharm', 'BSc', 'BA', 'BCA', 'M.Tech', 'MSc', 'MD', 'Class 12', 'Other'])
         cgpa = st.slider("CGPA", 0, 10, 5)
         academic_pressure = st.slider("Academic Pressure (1–5)", 1, 5, 3)
-
+    
         st.subheader("Lifestyle Factors")
+    
         sleep_duration = st.selectbox("Sleep Duration", ['Less than 5 hours', '5-6 hours', '7-8 hours', 'More than 8 hours'])
         dietary_habits = st.selectbox("Dietary Habits", ['Healthy', 'Moderate', 'Unhealthy'])
-
+    
+    
+    
+    
     # Organize data to a DataFrame
+    
     input_dict = {
         'Gender': gender,
         'Age': float(age),
@@ -124,29 +136,38 @@ with tab2:
         'Financial Stress': 1.0,
         'Family History of Mental Illness': family_history
     }
-
+    
     input_df = pd.DataFrame([input_dict])
-
+    
+    # Pre processing
+    
     # Apply LabelEncoder to categorical cols
+    
     for col, le in label_encoders.items():
         if col in input_df.columns:
             input_df[col] = le.transform(input_df[col])
-
-    # Scale numerical cols
+    
+    # Scaler to numerical cols
+    
     input_df[num_cols] = scaler.transform(input_df[num_cols])
-
+    
     # Prediction
+    
     prediction = model.predict(input_df)[0]
     prob = model.predict_proba(input_df)[0][1]
-
+    
     st.write(f"**Predicted Class:** {'Depressed' if prediction == 1 else 'Not Depressed'}")
-
+    
     # Convert probability to % and set bar palette
+    
     prob_percent = int(prob * 100)
-    cmap = cm.get_cmap("turbo")
-    color = cmap(prob)
-    hex_color = mcolors.rgb2hex(color)
-
+    
+    cmap = cm.get_cmap("turbo")  
+    color = cmap(prob) 
+    hex_color = mcolors.rgb2hex(color)  # converts hex to string
+    
+    # Custom bar
+    
     st.markdown(f"""
     <div style="border: 1px solid #ccc; border-radius: 10px; width: 100%; background-color: #f5f5f5; position: relative; height: 30px;">
       <div style="background-color: {hex_color}; width: {prob_percent}%; height: 100%; border-radius: 10px; text-align: center; color: black; font-weight: bold;">
@@ -159,6 +180,7 @@ with tab2:
 with tab3:
     st.title("About Me")
 
+    # Add resume download button
     with open("assets/resume.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
 
@@ -169,7 +191,7 @@ with tab3:
         file_name="Aaron_Albrecht_Resume.pdf",
         mime="application/pdf"
     )
-
+    # Show your picture
     st.image("assets/my_picture.jpg", width=250)
 
     st.write("""
@@ -179,6 +201,7 @@ with tab3:
     This portfolio showcases some of my recent projects.
     """)
 
+    # RESUME DETAILS
     st.subheader("Experience")
     st.markdown("""
     **Database and Automation Developer – Osprey Visa Consulting**  
@@ -217,4 +240,21 @@ with tab3:
     st.subheader("Technical Skills")
     st.markdown("""
     - **Languages**: Python, SQL  
-    - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn
+    - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn, XGBoost  
+    - **Databases**: Microsoft SQL Server  
+    - **Tools**: Power BI, Git, Jupyter Notebook, Azure, AWS, Airflow, Snowflake, Docker  
+    - **Others**: Data Cleaning, Predictive Modeling, KPI Analysis, Machune Learning, Data Visualization
+    """)
+
+    st.subheader("Languages")
+    st.markdown("""
+    - Portuguese (Native)  
+    - English (Fluent)
+    """)
+
+    st.subheader("Portfolio Links")
+    st.markdown("""
+    [![GitHub](https://img.shields.io/badge/GitHub-AaronProgramas-black?logo=github)](https://github.com/AaronProgramas)  
+    [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-black?logo=linkedin)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
+    [![Kaggle](https://img.shields.io/badge/Kaggle-AaronAlbrecht-black?logo=kaggle)](https://www.kaggle.com/aaronalbrecht)
+    """, unsafe_allow_html=True)
