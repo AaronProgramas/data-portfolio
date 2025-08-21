@@ -68,7 +68,7 @@ with tab2:
     st.write("Fill the form to predict the odds of having the big sad.")
     
     with st.sidebar:
-        st.title("About the App")
+        st.title("About the Mental Health App")
         st.write(
             "This web app leverages a machine learning model trained on an open-source Kaggle dataset "
             "to estimate the probability of depression. ")
