@@ -70,34 +70,8 @@ with tab2:
     col1, col2, col3 = st.columns([2, 2, 1])
     
     # Input form
-    
+
     with col1:
-    
-        st.subheader("Personal Information")
-    
-        gender = st.selectbox("Gender", ["Male", "Female", "Other"])
-        profession = st.selectbox("Profession", ['Student', 'Working Professional'])
-        age = st.slider("Age", 10, 60, 20)
-    
-        st.subheader("Mental Health Factors")
-    
-        suicidal_thoughts = st.selectbox("Have you ever had suicidal thoughts ?", ["Yes", "No"])
-        family_history = st.selectbox("Family History of Mental Illness", ["Yes", "No"])
-    
-    with col2:
-    
-        st.subheader("Academic Information")
-    
-        degree = st.selectbox("Degree", ['B.Pharm', 'BSc', 'BA', 'BCA', 'M.Tech', 'MSc', 'MD', 'Class 12', 'Other'])
-        cgpa = st.slider("CGPA", 0, 10, 5)
-        academic_pressure = st.slider("Academic Pressure (1–5)", 1, 5, 3)
-    
-        st.subheader("Lifestyle Factors")
-    
-        sleep_duration = st.selectbox("Sleep Duration", ['Less than 5 hours', '5-6 hours', '7-8 hours', 'More than 8 hours'])
-        dietary_habits = st.selectbox("Dietary Habits", ['Healthy', 'Moderate', 'Unhealthy'])
-    
-    with col3:
         st.title("About the Mental Health App")
         st.write(
             "This web app leverages a machine learning model trained on an open-source Kaggle dataset "
@@ -114,7 +88,34 @@ with tab2:
             """,
             unsafe_allow_html=True
         )
+        
+    with col2:
     
+        st.subheader("Personal Information")
+    
+        gender = st.selectbox("Gender", ["Male", "Female", "Other"])
+        profession = st.selectbox("Profession", ['Student', 'Working Professional'])
+        age = st.slider("Age", 10, 60, 20)
+    
+        st.subheader("Mental Health Factors")
+    
+        suicidal_thoughts = st.selectbox("Have you ever had suicidal thoughts ?", ["Yes", "No"])
+        family_history = st.selectbox("Family History of Mental Illness", ["Yes", "No"])
+    
+    with col3:
+    
+        st.subheader("Academic Information")
+    
+        degree = st.selectbox("Degree", ['B.Pharm', 'BSc', 'BA', 'BCA', 'M.Tech', 'MSc', 'MD', 'Class 12', 'Other'])
+        cgpa = st.slider("CGPA", 0, 10, 5)
+        academic_pressure = st.slider("Academic Pressure (1–5)", 1, 5, 3)
+    
+        st.subheader("Lifestyle Factors")
+    
+        sleep_duration = st.selectbox("Sleep Duration", ['Less than 5 hours', '5-6 hours', '7-8 hours', 'More than 8 hours'])
+        dietary_habits = st.selectbox("Dietary Habits", ['Healthy', 'Moderate', 'Unhealthy'])
+    
+
     
     
     # Organize data to a DataFrame
