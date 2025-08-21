@@ -156,8 +156,6 @@ with tab2:
     
     prediction = model.predict(input_df)[0]
     prob = model.predict_proba(input_df)[0][1]
-
-with col2, col3:
     
     st.write(f"**Predicted Class:** {'Depressed' if prediction == 1 else 'Not Depressed'}")
     
