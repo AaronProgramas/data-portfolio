@@ -249,6 +249,10 @@ with tab3:
         **Kaggle Machine Learning Competition** *(May 2025)*  
         - Built a stacked regression model with XGBoost, LightGBM, and RandomForest  
         - Ranked in the top 38% for calorie expenditure prediction
+
+        **Machine Learning-Based Depression Probability Calculator** *(Aug 2025)*  
+        - Built a Logistic Regression model with 87% accuracy to predict mental health status, using an open source student dataset.  
+        - Built an interactive app using Streamlit to deploy the model.
     
         **PDF/DOCX Automation Tool** *(May 2025)*  
         - Script to batch-edit PDF/DOCX using Fitz, PyPDF2, and python-docx  
