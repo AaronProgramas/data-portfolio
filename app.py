@@ -203,10 +203,24 @@ with tab3:
     """)
 
     # RESUME DETAILS
+    st.subheader("Technical Skills")
+    st.markdown("""
+    - **Languages**: Python, SQL,
+    - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn, XGBoost  
+    - **Databases**: Microsoft SQL Server, AWS  
+    - **Tools**: Power BI, Git, Jupyter Notebook, Azure, AWS Athena, Airflow, Snowflake, Docker  
+    - **Others**: Data Cleaning, Predictive Modeling, KPI Analysis, Machine Learning, Feature Engineering, Data Visualization, KPI Analysis
+    """)
+
     st.subheader("Experience")
     st.markdown("""
+    **Marketing Data Analyst – Coca Cola**  
+    *Rio de Janeiro, RJ | Jul 2025 – Present*  
+    - Developed SQL queries to extract and validade marketing datasets, increasing KPI accuracy and reliability by 5%.  
+    - Automated the update pipeline for over 80 power bi dashboards, ensuring real-time data availability and reducing manual labor.
+
     **Database and Automation Developer – Osprey Visa Consulting**  
-    *Rio de Janeiro, RJ | Apr 2025 – Present*  
+    *Rio de Janeiro, RJ | Mar 2025 – Aug 2025*  
     - Developed a centralized client management database (Azure SQL)  
     - Automated repetitive workflows with Python, enhancing data accuracy and reducing manual labor
 
@@ -236,15 +250,6 @@ with tab3:
     st.markdown("""
     - **B.Sc. in Data Science** – Estácio de Sá *(Expected 2027)*  
     - **B.Sc. in Chemical Engineering** – UERJ *(Expected Dec 2027)*
-    """)
-
-    st.subheader("Technical Skills")
-    st.markdown("""
-    - **Languages**: Python, SQL  
-    - **Libraries**: Pandas, Numpy, Seaborn, Matplotlib, Scikit-learn, XGBoost  
-    - **Databases**: Microsoft SQL Server  
-    - **Tools**: Power BI, Git, Jupyter Notebook, Azure, AWS, Airflow, Snowflake, Docker  
-    - **Others**: Data Cleaning, Predictive Modeling, KPI Analysis, Machune Learning, Data Visualization
     """)
 
     st.subheader("Languages")
