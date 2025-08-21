@@ -180,7 +180,7 @@ with tab2:
 # --- RESUME TAB ---
 with tab3:
     st.title("About Me")
-    col1, col2 = st.columns([1, 3, 3])
+    col1, col2, col3 = st.columns([1, 3, 3])
     with col1:
 
         # Add resume download button
