@@ -81,13 +81,6 @@ with tab2:
             "mental health support. Please consult a qualified professional for any medical concerns."
         )
     
-        st.title("Hire Me")
-        st.markdown(
-            """
-            [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)
-            """,
-            unsafe_allow_html=True
-        )
         
     with col2:
     
