@@ -180,7 +180,7 @@ with tab2:
 # --- RESUME TAB ---
 with tab3:
     st.title("About Me")
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 3, 3])
     with col1:
 
         # Add resume download button
@@ -203,6 +203,13 @@ with tab3:
         I specialize in Data Analytics, with proficiency in Python, Excel, SQL, and Power BI.
         This portfolio showcases some of my recent projects.
         """)
+        st.subheader("Portfolio Links")
+        st.markdown("""
+        [![GitHub](https://img.shields.io/badge/GitHub-AaronProgramas-black?logo=github)](https://github.com/AaronProgramas)  
+        [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-black?logo=linkedin)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
+        [![Kaggle](https://img.shields.io/badge/Kaggle-AaronAlbrecht-black?logo=kaggle)](https://www.kaggle.com/aaronalbrecht)
+        """, unsafe_allow_html=True)
+    
     with col2:
         # RESUME DETAILS
         st.subheader("Technical Skills")
@@ -236,7 +243,7 @@ with tab3:
         - Built a regression model with 83% accuracy to predict client purchase behavior  
         - Boosted response rates by 20% through data-driven insights
         """)
-    
+    with col3:
         st.subheader("Projects")
         st.markdown("""
         **Kaggle Machine Learning Competition** *(May 2025)*  
@@ -260,9 +267,4 @@ with tab3:
         - English (Fluent)
         """)
     
-        st.subheader("Portfolio Links")
-        st.markdown("""
-        [![GitHub](https://img.shields.io/badge/GitHub-AaronProgramas-black?logo=github)](https://github.com/AaronProgramas)  
-        [![LinkedIn](https://img.shields.io/badge/LinkedIn-aaron--albrecht-black?logo=linkedin)](https://www.linkedin.com/in/aaron-albrecht-32692b259/)  
-        [![Kaggle](https://img.shields.io/badge/Kaggle-AaronAlbrecht-black?logo=kaggle)](https://www.kaggle.com/aaronalbrecht)
-        """, unsafe_allow_html=True)
+
