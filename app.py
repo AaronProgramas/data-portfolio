@@ -18,7 +18,7 @@ ml_projects = {
 }
 
 # Tabs
-tab1, tab2, tab3 = st.tabs(["Projects", "Binary Mental Health Prediction" "Resume"])
+tab1, tab2, tab3 = st.tabs(["Projects", "Binary Mental Health Prediction", "Resume"])
 
 # --- PROJECTS TAB ---
 with tab1:
