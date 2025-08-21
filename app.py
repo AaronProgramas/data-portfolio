@@ -24,18 +24,19 @@ tab1, tab2, tab3 = st.tabs(["Projects", "Binary Mental Health Prediction", "Resu
 with tab1:
     st.title("Aaron Albrecht - Data Analytics Portfolio")
 
-    # --- Sidebar: Category selection ---
-    category = st.sidebar.radio("Select Project Category", ["Data Analytics", "Machine Learning"])
+    with st.sidebar:
+        # --- Sidebar: Category selection ---
+        category = st.radio("Select Project Category", ["Data Analytics", "Machine Learning"])
 
-    # --- Filter projects ---
-    all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
-    if category == "Machine Learning":
-        project_files = sorted([f for f in all_projects if f in ml_projects])
-    else:
-        project_files = sorted([f for f in all_projects if f not in ml_projects])
+        # --- Filter projects ---
+        all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
+        if category == "Machine Learning":
+            project_files = sorted([f for f in all_projects if f in ml_projects])
+        else:
+            project_files = sorted([f for f in all_projects if f not in ml_projects])
 
-    # --- Project selection ---
-    selected_project = st.sidebar.selectbox("Choose a Project", project_files)
+        # --- Project selection ---
+        selected_project = st.selectbox("Choose a Project", project_files)
 
     if selected_project:
         st.header(f"Project: {selected_project}")
