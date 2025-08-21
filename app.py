@@ -67,7 +67,7 @@ with tab2:
     st.title("Depression Probability Calculator")
     st.write("Fill the form to predict the odds of having the big sad.")
     
-    col1, col2, col3 = st.columns([2, 2, 1])
+    col1, col2, col3 = st.columns([1, 2, 2])
     
     # Input form
 
