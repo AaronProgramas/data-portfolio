@@ -10,6 +10,8 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import io
+from nbconvert import HTMLExporter
+import nbformat, os, streamlit as st
 
 # Set Page Configuration
 st.set_page_config(page_title="Aaron Albrecht", layout="wide")
@@ -111,33 +113,47 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Notebooks", "EDA", "Data Visualization"
 with tab1:
     st.title("Aaron Albrecht - Notebooks")
 
-    # --- Sidebar: Category selection ---
     category = st.sidebar.radio("**Select Project Category**", ["Data Analytics", "Machine Learning"])
-
-    # --- Filter projects ---
     all_projects = sorted([f for f in os.listdir('projects') if f.endswith('.ipynb')])
-    if category == "Machine Learning":
-        project_files = sorted([f for f in all_projects if f in ml_projects])
-    else:
-        project_files = sorted([f for f in all_projects if f not in ml_projects])
+    project_files = sorted([f for f in all_projects if (f in ml_projects) == (category == "Machine Learning")])
 
-    # --- Project selection ---
     selected_project = st.sidebar.selectbox("Choose a Project", project_files)
 
     if selected_project:
         st.header(f"Project: {selected_project}")
 
-        # Load notebook
         notebook_path = os.path.join('projects', selected_project)
-        with open(notebook_path) as f:
-            notebook_content = nbformat.read(f, as_version=4)
+        with open(notebook_path, "r", encoding="utf-8") as f:
+            nb = nbformat.read(f, as_version=4)
 
-        # Convert notebook to HTML
-        html_exporter = nbconvert.HTMLExporter()
-        (body, resources) = html_exporter.from_notebook_node(notebook_content)
+        # nbconvert com template “lab” e tema escuro
+        html_exporter = HTMLExporter(template_name="lab")
+        html_exporter.theme = "dark"  # <- chave para fundo escuro
 
-        # Display HTML
-        st.components.v1.html(body, height=1200, scrolling=True)
+        body, resources = html_exporter.from_notebook_node(nb)
+
+        # CSS extra para garantir fundo e texto
+        dark_css = """
+        <style>
+        :root { color-scheme: dark; }
+
+        body, .jp-Notebook, .cell, .input_area, .output_area, pre, code {
+            background: #111 !important;
+            color: #e6e6e6 !important;
+            border-color: #333 !important;
+        }
+        .dataframe, table { background:#181818 !important; color:#ddd !important; }
+        h1,h2,h3,h4,h5 { color:#fff !important; }
+
+        /* strings já são vermelhas (pygments) → pegamos a cor delas */
+        .s1, .s2 { color: #e06c75 !important; }
+
+        /* keywords (import, from) ficam iguais às strings */
+        .kn, .k { color: #e06c75 !important; font-weight: normal !important; }
+        </style>
+        """
+
+        st.components.v1.html(dark_css + body, height=1200, scrolling=True)
 
 # --- DEPRESSION PROB CALCULATOR TAB ---
 
